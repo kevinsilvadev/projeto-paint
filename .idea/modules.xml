@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cliente Paint/Cliente Paint.iml" filepath="$PROJECT_DIR$/Cliente Paint/Cliente Paint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Cliente-Servidor-Paint.iml" filepath="$PROJECT_DIR$/.idea/Cliente-Servidor-Paint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servidor Paint/Servidor Paint.iml" filepath="$PROJECT_DIR$/Servidor Paint/Servidor Paint.iml" />
+    </modules>
+  </component>
+</project>
