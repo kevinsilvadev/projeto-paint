@@ -91,4 +91,34 @@ public class Retangulo extends Figura {
                 ":" +
                 this.getCorDePreenchimento().getBlue();
     }
+
+    @Override
+    public int hashCode(){
+        int ret = 1;
+        //nao sei se eh assim ou como eh um obj ja faz do jeito simplificado
+        if (this.pontoSuperiorEsquerdo!=null)
+            ret = ret*13 + this.pontoSuperiorEsquerdo.hashCode();
+        ret = ret*13 + Integer.valueOf(this.largura).hashCode();
+        ret = ret*13 + Integer.valueOf(this.altura).hashCode();
+
+        if(ret <0) ret = -ret;
+
+        return ret;
+    }
+
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        final Retangulo retangulo = (Retangulo) obj;
+        if (this.pontoSuperiorEsquerdo != retangulo.pontoSuperiorEsquerdo) return false;
+        if (this.largura != retangulo.largura) return false;
+        if (this.altura != retangulo.altura) return false;
+
+        return true;
+    }
+
 }
