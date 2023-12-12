@@ -109,4 +109,32 @@ public class Elipse extends Figura
                 ":" +
                 this.getCorDePreenchimento().getBlue();
     }
+
+    @Override
+    public int hashCode(){
+        int ret = 1;
+        //nao sei se eh assim ou como eh um obj ja faz do jeito simplificado
+        if (this.centro!=null) ret = ret*13 + this.centro.hashCode();
+        ret = ret*13 + Integer.valueOf(this.raio1).hashCode();
+        ret = ret*13 + Integer.valueOf(this.raio2).hashCode();
+
+        if(ret <0) ret = -ret;
+
+        return ret;
+    }
+
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        final Elipse elipse = (Elipse) obj;
+        if (this.centro != elipse.centro) return false;
+        if (this.raio1 != elipse.raio1) return false;
+        if (this.raio2 != elipse.raio2) return false;
+
+        return true;
+    }
 }

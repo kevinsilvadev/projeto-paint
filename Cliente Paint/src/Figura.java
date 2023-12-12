@@ -43,8 +43,8 @@ public abstract class Figura
     }
 
 
-    //public abstract boolean equals         (Object obj);
-  //public abstract int     hashCode       ();
+    public abstract boolean equals         (Object obj);
+    public abstract int     hashCode       ();
   //public abstract Object  clone          ();
     public abstract String  toString       ();
     public abstract void    torneSeVisivel (Graphics g);

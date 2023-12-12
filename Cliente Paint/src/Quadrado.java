@@ -85,4 +85,33 @@ public class Quadrado extends Figura {
                 ":" +
                 this.getCorDePreenchimento().getBlue();
     }
+
+    @Override
+    public int hashCode(){
+        int ret = 1;
+        //nao sei se eh assim ou como eh um obj ja faz do jeito simplificado
+        if (this.cantoSuperiorEsquerdo!=null)
+            ret = ret*13 + this.cantoSuperiorEsquerdo.hashCode();
+        ret = ret*13 + Integer.valueOf(this.lado).hashCode();
+
+        if(ret <0) ret = -ret;
+
+        return ret;
+    }
+
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj == this) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        final Quadrado quadrado = (Quadrado) obj;
+        if (this.cantoSuperiorEsquerdo != quadrado.cantoSuperiorEsquerdo) return false;
+        if (this.lado != quadrado.lado) return false;
+
+        return true;
+    }
+
+
 }

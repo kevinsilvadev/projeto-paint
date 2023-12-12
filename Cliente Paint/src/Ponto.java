@@ -76,7 +76,6 @@ public class Ponto extends Figura
     @Override
     public int hashCode(){
         int ret = 1;
-        //nao sei se eh assim ou como eh um obj ja faz do jeito simplificado
         ret = ret*13 + Integer.valueOf(this.x).hashCode();
         ret = ret*13 + Integer.valueOf(this.y).hashCode();
 

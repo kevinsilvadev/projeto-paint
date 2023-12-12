@@ -55,7 +55,7 @@ public class Janela extends JFrame {
 
     public Janela() {
 
-        super("Editor Gr�fico");
+        super("Editor Grafico");
 
         try {
             Image btnPontoImg = ImageIO.read(getClass().getResource("resources/ponto.jpg"));
@@ -63,7 +63,7 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo ponto.jpg n�o foi encontrado",
+                    "Arquivo ponto.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -75,9 +75,9 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo linha.jpg n�o foi encontrado",
+                    "Arquivo linha.jpg nao foi encontrado",
 
-                    "Arquivo linha.jpg n?o foi encontrado",
+                    "Arquivo linha.jpg nao foi encontrado",
                     JOptionPane.WARNING_MESSAGE);
         }
 
@@ -86,7 +86,7 @@ public class Janela extends JFrame {
             btnCirculo.setIcon(new ImageIcon(btnCirculoImg));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
-                    "Arquivo circulo.jpg n�o foi encontrado",
+                    "Arquivo circulo.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -97,7 +97,7 @@ public class Janela extends JFrame {
             btnElipse.setIcon(new ImageIcon(btnElipseImg));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
-                    "Arquivo elipse.jpg n�o foi encontrado",
+                    "Arquivo elipse.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -108,7 +108,7 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo elipse.jpg n�o foi encontrado",
+                    "Arquivo elipse.jpg nao foi encontrado",
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
         }
@@ -117,7 +117,7 @@ public class Janela extends JFrame {
             btnRetangulo.setIcon(new ImageIcon(btnRetanguloImg));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
-                    "Arquivo elipse.jpg n�o foi encontrado",
+                    "Arquivo elipse.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -128,9 +128,9 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo elipse.jpg n�o foi encontrado",
+                    "Arquivo elipse.jpg nao foi encontrado",
 
-                    "Arquivo elipse.jpg n?o foi encontrado",
+                    "Arquivo elipse.jpg nao foi encontrado",
 
                     JOptionPane.WARNING_MESSAGE);
         }
@@ -153,7 +153,7 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo cores.jpg n�o foi encontrado",
+                    "Arquivo cores.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -165,7 +165,7 @@ public class Janela extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
 
-                    "Arquivo abrir.jpg n?o foi encontrado",
+                    "Arquivo abrir.jpg nao foi encontrado",
 
                     "Arquivo de imagem ausente",
                     JOptionPane.WARNING_MESSAGE);
@@ -597,7 +597,7 @@ public class Janela extends JFrame {
                 int largura = Math.abs(e.getX() - p1Retangulo.getX());
                 int altura = Math.abs(e.getY() - p1Retangulo.getY());
 
-                // Verifica a dire��o do movimento do mouse p ajustar as coordenadas
+                // Verifica a direcao do movimento do mouse p ajustar as coordenadas
                 int x = (e.getX() > p1Retangulo.getX()) ? p1Retangulo.getX() : e.getX();
                 int y = (e.getY() > p1Retangulo.getY()) ? p1Retangulo.getY() : e.getY();
 
@@ -668,11 +668,6 @@ public class Janela extends JFrame {
                     circuloTemp.setCorDePreenchimento(corDePreenchimento);
 
 
-                    // Desenho tempor�rio
-                    desenhoTemp = circuloTemp;
-                    repaint();
-                    statusBar1.setText("Mensagem: Arraste o mouse e clique no fim do c�rculo");
-                    // Desenho tempor?rio
                     desenhoTemp = circuloTemp;
                     repaint();
                     statusBar1.setText("Mensagem: Arraste o mouse e clique no fim do circulo");
