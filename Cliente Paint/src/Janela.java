@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.imageio.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.net.ConnectException;
 import java.net.InetAddress;
@@ -332,10 +331,10 @@ public class Janela extends JFrame {
                 return;
             }
 
-            Parceiro servidor;
+            ComunicaSocket servidor;
             try
             {
-                servidor = new Parceiro (conexao, receptor, transmissor);
+                servidor = new ComunicaSocket(conexao, receptor, transmissor);
             }
             catch (Exception erro)
             {
@@ -364,19 +363,19 @@ public class Janela extends JFrame {
                     {
                         System.out.println(nomeDesenho);
                         String ipString = InetAddress.getLocalHost().getHostAddress();
-                        PedidoDeAbertura pda = new PedidoDeAbertura(nomeDesenho, ipString);
+                        SolcitaAberturaDesenho pda = new SolcitaAberturaDesenho(nomeDesenho, ipString);
                         System.out.println("Enviando Pedido de Abertura...");
-                        servidor.receba(pda);
+                        servidor.recebaProximoComunicado(pda);
                         System.out.println("Pedido Recebido!");
 
-                        Comunicado comunicado = servidor.envie();
+                        Comunicado comunicado = servidor.envieComunicadoSocket();
 
                         if (comunicado == null) {
                             System.out.println("Recebido um Comunicado nulo. Verifique o que o servidor está enviando.");
                             return;
                         }
 
-                        if (comunicado instanceof PedidoDeAbertura) {
+                        if (comunicado instanceof SolcitaAberturaDesenho) {
                             System.out.println("Esse nome de desenho não existe. Tente novamente.");
 
                             JOptionPane.showMessageDialog(null,
@@ -446,7 +445,7 @@ public class Janela extends JFrame {
                 e.printStackTrace();
             }
 
-            servidor.adeus();
+            servidor.encerrarConexao();
         }
         catch(ConnectException e)
         {
@@ -1065,10 +1064,10 @@ public class Janela extends JFrame {
                 return;
             }
 
-            Parceiro servidor = null;
+            ComunicaSocket servidor = null;
             try
             {
-                servidor = new Parceiro(conexao, receptor, transmissor);
+                servidor = new ComunicaSocket(conexao, receptor, transmissor);
             }
             catch (Exception erro)
             {
@@ -1105,7 +1104,7 @@ public class Janela extends JFrame {
 
                         System.out.println("Enviando Pedido de Salvamento...");
 
-                        servidor.receba(new PedidoDeSalvamento(d));
+                        servidor.recebaProximoComunicado(new PedidoDeSalvamento(d));
 
                         System.out.println("Pedido de Salvamento Recebido!");
 
@@ -1118,7 +1117,7 @@ public class Janela extends JFrame {
                     }
                 }
 
-                servidor.adeus();
+                servidor.encerrarConexao();
             }
             catch (Exception e)
             {

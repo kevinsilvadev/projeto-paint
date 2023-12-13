@@ -13,16 +13,8 @@ public class PedidoDeAbertura extends Comunicado
         this.idCliente = idCliente;        
     }
     
-    public void setNomeDesenho (String nomeDesenho)
-    {
-        this.nomeDesenho = nomeDesenho;
-    }
-    
-    public void setIdCliente (String idCliente)
-    {
-        this.idCliente = idCliente;
-    }
-    
+
+
     public String getNomeDesenho ()
     {
         return this.nomeDesenho;

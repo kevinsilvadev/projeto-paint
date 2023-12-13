@@ -9,7 +9,10 @@ public class Desenho extends Comunicado
     private String dataCriacao;
     private String dataModificacao;
     private ArrayList<String> figuras;
-    
+
+
+
+
     public void setNomeDesenho(String nomeDesenho) throws Exception
     {
         if (nomeDesenho==null || nomeDesenho.equals(""))
@@ -68,7 +71,6 @@ public class Desenho extends Comunicado
         this.setIdCliente (idCliente);
         this.setDataCriacao (dataCriacao);
         this.setDataModificacao (dataModificacao);
-        
         this.figuras = new ArrayList<String>();
     }
     

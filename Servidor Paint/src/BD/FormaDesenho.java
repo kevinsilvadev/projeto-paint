@@ -1,8 +1,8 @@
-package BancoDeDados;
+package BD;
 
 import java.util.Objects;
 
-public class Forma 
+public class FormaDesenho
 {
     private int    idDesenho;
     private String figura;
@@ -33,7 +33,7 @@ public class Forma
         return this.figura;
     }
     
-    public Forma (int idDesenho, String figura) throws Exception
+    public FormaDesenho(int idDesenho, String figura) throws Exception
     {
         this.setIdDesenho (idDesenho);
         this.setFigura (figura);
@@ -69,7 +69,7 @@ public class Forma
         if (getClass() != obj.getClass()) 
             return false;
         
-        final Forma other = (Forma) obj;
+        final FormaDesenho other = (FormaDesenho) obj;
         
         if (this.idDesenho != other.idDesenho) 
             return false;

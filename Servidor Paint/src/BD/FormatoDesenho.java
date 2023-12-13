@@ -1,23 +1,21 @@
-package BancoDeDados;
+package BD;
 
 
 import Comunica.Desenho;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
-import java.sql.*;
-
-public class Formas
+public class FormatoDesenho
 {
-    public static void incluir(Forma forma) throws Exception {
-        if (forma == null)
+    public static void incluir(FormaDesenho formaDesenho) throws Exception {
+        if (formaDesenho == null)
             throw new Exception("Forma não fornecida");
 
         try {
             MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
 
-            Document document = new Document("idDesenho", forma.getIdDesenho())
-                    .append("figura", forma.getFigura());
+            Document document = new Document("idDesenho", formaDesenho.getIdDesenho())
+                    .append("figura", formaDesenho.getFigura());
 
             collection.insertOne(document);
         } catch (Exception e) {
@@ -25,15 +23,6 @@ public class Formas
         }
     }
 
-    public static void excluir(int idDesenho) throws Exception {
-        try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
-            Document query = new Document("idDesenho", idDesenho);
-            collection.deleteMany(query);
-        } catch (Exception e) {
-            throw new Exception("Erro ao excluir forma no MongoDB", e);
-        }
-    }
 
     public static void setFormasDesenho(int idDesenho, Desenho d) throws Exception {
         try {

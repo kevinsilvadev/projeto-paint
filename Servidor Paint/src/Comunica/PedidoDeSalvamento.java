@@ -11,15 +11,7 @@ public class PedidoDeSalvamento extends Comunicado
         this.desenho = desenho;
     }
     
-    public void setDesenho (Desenho desenho)
-    {
-        this.desenho = desenho;
-    }
-    
-    public Desenho getDesenho ()
-    {
-        return this.desenho;
-    }
+
     
     public String getNomeDesenho ()
     {
@@ -59,14 +51,13 @@ public class PedidoDeSalvamento extends Comunicado
     @Override
     public int hashCode() 
     {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.desenho);
-        return hash;
+        int ret = 666;
+        ret = 13 * ret + this.desenho.hashCode();
+        return ret;
     }
 
     @Override
-    public boolean equals(Object obj) 
-    {
+    public boolean equals(Object obj) {
         if (this == obj) 
             return true;
         
@@ -76,9 +67,9 @@ public class PedidoDeSalvamento extends Comunicado
         if (getClass() != obj.getClass()) 
             return false;
         
-        final PedidoDeSalvamento other = (PedidoDeSalvamento) obj;
+        final PedidoDeSalvamento pedidoDeSalvamento = (PedidoDeSalvamento) obj;
         
-        if (!Objects.equals(this.desenho, other.desenho)) 
+        if (!Objects.equals(this.desenho, pedidoDeSalvamento.desenho))
             return false;
         
         return true;

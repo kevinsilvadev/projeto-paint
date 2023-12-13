@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BD;
 
 // DBO - Colunas da tabela
 
@@ -12,7 +12,11 @@ public class RegistroDesenho
     private String dataCriacao;
     private String dataModificacao;
     private int    idDesenho;
-    
+
+
+
+    public RegistroDesenho () {
+    }
     public void setNomeDesenho(String nomeDesenho) throws Exception
     {
         if (nomeDesenho==null || nomeDesenho.equals(""))
@@ -143,9 +147,7 @@ public class RegistroDesenho
         
         return hash;
     }
-    
-    
-    
+
     
     
 }

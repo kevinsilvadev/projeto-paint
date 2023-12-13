@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BD;
 
 import com.mongodb.*;
 import com.mongodb.client.MongoClient;

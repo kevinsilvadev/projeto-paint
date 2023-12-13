@@ -1,4 +1,4 @@
-package BancoDeDados;
+package BD;
 
 import Comunica.Desenho;
 import com.mongodb.BasicDBObject;
@@ -12,7 +12,7 @@ public class RegistroDesenhos
             throw new Exception("Registro de Desenho não fornecido");
         }
         try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
+            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("RegistroDesenho");
 
             Document document = new Document()
                     .append("nomeDesenho", registroDesenho.getNomeDesenho())
@@ -28,7 +28,7 @@ public class RegistroDesenhos
 
     public static int idAtual() throws Exception {
         try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
+            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("RegistroDesenho");
             long count = collection.countDocuments();
             return (int) count + 1; // Incrementando para obter um valor equivalente ao próximo ID
         } catch (Exception e) {
@@ -36,19 +36,23 @@ public class RegistroDesenhos
         }
     }
 
-    public static int getIdExistente(String nomeDesenho, String idCliente) throws Exception {
-        int id = 0;
+    public static String getIdExistente(String nomeDesenho, String idCliente) throws Exception {
+        String id = "";
 
         try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
+            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("RegistroDesenho");
 
             BasicDBObject query = new BasicDBObject();
             query.put("nomeDesenho", nomeDesenho);
             query.put("idCliente", idCliente);
 
             Document document = collection.find(query).first();
+
+            document.getString("idCliente");
+
             if (document != null) {
-                id = document.getInteger("idClient");
+                System.out.println("teste");
+                id = document.getString("idCliente");
                 System.out.println(id);
             }
         } catch (Exception e) {
@@ -58,11 +62,15 @@ public class RegistroDesenhos
         return id;
     }
 
-    public static Desenho getRegistroDesenho(String idDesenho) throws Exception {
+    public static Desenho getRegistroDesenho(String idCliente) throws Exception {
         try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
-            Document query = new Document("_id", idDesenho);
+            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("RegistroDesenho");
+            Document query = new Document("idCliente", idCliente);
             Document result = collection.find(query).first();
+
+            System.out.println(result);
+
+            System.out.println("Passei pelo metodo");
 
             if (result == null) {
                 throw new Exception("Registro de desenho não encontrado");
@@ -79,24 +87,11 @@ public class RegistroDesenhos
         }
     }
 
-    public static void alterar(String dataModificacao, int idDesenho) throws Exception {
-        try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
 
-            BasicDBObject query = new BasicDBObject("_id", idDesenho);
-
-            BasicDBObject update = new BasicDBObject();
-            update.put("$set", new BasicDBObject("dataModificacao", dataModificacao));
-
-            collection.updateOne(query, update);
-        } catch (Exception e) {
-            throw new Exception("Erro ao atualizar dados do desenho no MongoDB", e);
-        }
-    }
 
     public static boolean verificarNome(String nomeDesenho, String idCliente) throws Exception {
         try {
-            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("Desenhos");
+            MongoCollection<Document> collection = MongoDB.COMANDO.getCollectionByName("RegistroDesenho");
 
             // Crie um filtro combinando nomeDesenho e idCliente
             BasicDBObject query = new BasicDBObject();

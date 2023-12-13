@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cliente Paint/Cliente Paint.iml" filepath="$PROJECT_DIR$/Cliente Paint/Cliente Paint.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Cliente-Servidor-Paint.iml" filepath="$PROJECT_DIR$/.idea/Cliente-Servidor-Paint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ProjetoPaint.iml" filepath="$PROJECT_DIR$/.idea/ProjetoPaint.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servidor Paint/Servidor Paint.iml" filepath="$PROJECT_DIR$/Servidor Paint/Servidor Paint.iml" />
     </modules>
   </component>

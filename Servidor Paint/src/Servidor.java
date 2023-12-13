@@ -18,14 +18,14 @@ public class Servidor
         if (args.length==1)
             porta = args[0];
 
-        ArrayList<Parceiro> usuarios = new ArrayList<Parceiro> ();
+        ArrayList<ComunicaServerSocket> usuarios = new ArrayList<ComunicaServerSocket> ();
 
-        AceitadoraDeConexao aceitadoraDeConexao=null;
+        AceitaSocket aceitaSocket =null;
         try
         {
-            aceitadoraDeConexao =
-            new AceitadoraDeConexao (porta, usuarios);
-            aceitadoraDeConexao.start();
+            aceitaSocket =
+            new AceitaSocket(porta, usuarios);
+            aceitaSocket.start();
         }
         catch (Exception erro)
         {
@@ -52,7 +52,7 @@ public class Servidor
 					ComunicadoDeDesligamento comunicadoDeDesligamento =
                     new ComunicadoDeDesligamento ();
                     
-                    for (Parceiro usuario:usuarios)
+                    for (ComunicaServerSocket usuario:usuarios)
                     {
                         try
                         {

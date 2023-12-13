@@ -2,12 +2,12 @@ package Comunica;
 
 import java.util.Objects;
 
-public class PedidoDeAbertura extends Comunicado
+public class SolcitaAberturaDesenho extends Comunicado
 {    
     private String nomeDesenho;
     private String idCliente;
     
-    public PedidoDeAbertura (String nomeDesenho, String idCliente)
+    public SolcitaAberturaDesenho(String nomeDesenho, String idCliente)
     {
         this.nomeDesenho = nomeDesenho;
         this.idCliente = idCliente;        
@@ -51,15 +51,14 @@ public class PedidoDeAbertura extends Comunicado
     @Override
     public int hashCode() 
     {
-        int hash = 3;
-        hash = 31 * hash + Objects.hashCode(this.nomeDesenho);
-        hash = 31 * hash + Objects.hashCode(this.idCliente);
-        return hash;
+        int ret = 666;
+        ret = 13 * ret +  this.nomeDesenho.hashCode();
+        ret = 13 * ret +  this.idCliente.hashCode();
+        return ret;
     }
 
     @Override
-    public boolean equals(Object obj) 
-    {
+    public boolean equals(Object obj) {
         if (this == obj) 
             return true;
         
@@ -69,12 +68,12 @@ public class PedidoDeAbertura extends Comunicado
         if (getClass() != obj.getClass()) 
             return false;
         
-        final PedidoDeAbertura other = (PedidoDeAbertura) obj;
+        final SolcitaAberturaDesenho solcitaAberturaDesenho = (SolcitaAberturaDesenho) obj;
         
-        if (!Objects.equals(this.nomeDesenho, other.nomeDesenho)) 
+        if (!Objects.equals(this.nomeDesenho, solcitaAberturaDesenho.nomeDesenho))
             return false;
         
-        if (!Objects.equals(this.idCliente, other.idCliente)) 
+        if (!Objects.equals(this.idCliente, solcitaAberturaDesenho.idCliente))
             return false;
         
         return true;
